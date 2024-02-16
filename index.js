@@ -4,14 +4,21 @@ class Todo {
         if (localStorage.getItem('tasks')) {
             this.tasks = JSON.parse(localStorage.getItem('tasks'));
             this.renderTasks();
+
+            // set the previousId to the highest id in the tasks
+            this.previousId = Math.max(
+                ...Object.values(this.tasks).map(
+                    tasks => Math.max(...tasks.map(t => t.id))
+                )
+            );
         } else {
             this.tasks = {
                 low   : [],
                 medium: [],
                 high  : []
             };
+            this.previousId = 0;
         }
-        this.previousId = 0;
     }
 
 
