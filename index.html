@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <title>Todo</title>
+    <link rel="stylesheet" href="./variables.css">
+    <link rel="stylesheet" href="./general.css">
+    <link rel="stylesheet" href="./todo.css">
+    <link rel="stylesheet" href="./modal.css">
+</head>
+<body>
+    <header class="todo__header">
+        <h1 class="todo__title">My TODO application</h1>
+    </header>
+    <article class="todo">
+        <!-- Create todo-->
+        <section class="todo__container todo__container--create">
+            <h2 class="todo__headline">New task</h2>
+            <form class="todo__form" data-form>
+                <input    
+                    class="todo__input"    
+                    name="title"       
+                    aria-label="Name of the task"        
+                    placeholder="Title"    
+                    type="text">
+                <textarea 
+                    class="todo__textarea" 
+                    name="description"
+                    aria-label="Description of the task"
+                    placeholder="Description"></textarea>
+                <input    
+                    class="todo__input"    
+                    name="dueDate"     
+                    aria-label="When the task is due"    
+                    placeholder="Due date" 
+                    type="date">
+                <select   
+                    class="todo__select"   
+                    name="priority"    
+                    aria-label="How urgent is the task?">
+                    <option value="high">High</option>
+                    <option value="medium">Medium</option>
+                    <option value="low">Low</option>
+                </select>
+                <input
+                    class="todo__submit"
+                    name="submit"
+                    aria-label="Create the task"
+                    type="submit"
+                    value="Create">
+            </form>
+        </section>
+
+        <!-- Todo list -->
+        <section class="todo__container todo__container--list">
+            <ul class="todo__list todo__list--low"    data-list="low"></ul>
+            <ul class="todo__list todo__list--medium" data-list="medium"></ul>
+            <ul class="todo__list todo__list--high"   data-list="high"></ul>
+        </section>
+
+
+        <!-- Modal -->
+        <section class="modal"></section>
+    </article>
+
+    <script src="./index.js"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+:root {
+    --color-background         : #0e0e10;
+    --color-background-lighter : #18181b;
+    --color-background-lightest: #1f1f23;
+    --color-priority-high      : rgba(255, 0, 0, 0.2);
+    --color-priority-medium    : rgba(255, 255, 0, 0.2);
+    --color-priority-low       : rgba(0, 255, 0, 0.2);
+    --svg-checkmark            : url("./resources/svg/checkmark.svg");
+}
