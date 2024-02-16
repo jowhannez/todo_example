@@ -82,6 +82,7 @@ class Todo {
                         this.tasks[priority] = this.tasks[priority].filter(
                             t => t.id !== task.id
                         );
+                        localStorage.setItem('tasks', JSON.stringify(this.tasks));
                         this.renderTasks();
                         
                         return;
