@@ -2,14 +2,21 @@ class Todo {
     constructor() {
         if (localStorage.getItem('tasks')) {
             this.tasks = JSON.parse(localStorage.getItem('tasks'));
+            this.renderTasks();
+
+            this.previousId = Math.max(
+                ...Object.values(this.tasks).map(
+                    tasks => Math.max(...tasks.map(t => t.id))
+                )
+            );
         } else {
             this.tasks = {
                 low   : [],
                 medium: [],
                 high  : []
             };
+            this.previousId = 0;
         }
-        this.previousId = 0;
     }
 
     addTask(formData) {
@@ -52,20 +59,21 @@ class Todo {
                         this.tasks[priority] = this.tasks[priority].filter(
                             t => t.id !== task.id
                         );
+                        localStorage.setItem('tasks', JSON.stringify(this.tasks));
                         this.renderTasks();
                         
                         return;
                     }
                     this.openTask(task);
                 });
-
                 list.appendChild(taskElement);
             }
         }
     }
 
     openTask(task) {
-        const modal   = document.querySelector('.modal');
+        const modal = document.querySelector('.modal');
+
         const content = document.createElement('div');
         content.classList.add('modal__content');
         content.innerHTML = `
