@@ -3,6 +3,7 @@ class Todo {
         // check if the tasks exist in localstorage
         if (localStorage.getItem('tasks')) {
             this.tasks = JSON.parse(localStorage.getItem('tasks'));
+            this.renderTasks();
         } else {
             this.tasks = {
                 low   : [],
