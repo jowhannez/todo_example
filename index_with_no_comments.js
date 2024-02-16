@@ -103,7 +103,7 @@ class Todo {
 }
 
 const todo = new Todo();
-const form = document.querySelector('form');
+const form = document.querySelector('[data-form]');
 form.addEventListener('submit', event => {
     event.preventDefault();
     todo.addTask(new FormData(event.target));

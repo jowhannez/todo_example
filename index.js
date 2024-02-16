@@ -141,7 +141,7 @@ class Todo {
 const todo = new Todo();
 
 // When we hit the "create" button, we add the task to the list then render it
-const form = document.querySelector('form');
+const form = document.querySelector('[data-form]');
 form.addEventListener('submit', event => {
     event.preventDefault();
     todo.addTask(new FormData(event.target));
